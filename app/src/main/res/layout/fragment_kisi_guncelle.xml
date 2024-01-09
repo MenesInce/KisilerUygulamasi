@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="kisiGuncelleFragmentNesnesi"
+            type="com.menesince.kisilerdeneme.ui.fragment.KisiGuncelleFragment" />
+        <variable
+            name="kisiGuncelleToolbar"
+            type="String" />
+        <variable
+            name="kisi"
+            type="com.menesince.kisilerdeneme.data.entity.Kisiler" />
+    </data>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.KisiGuncelleFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarKisiGun"
+        app:title="@{kisiGuncelleToolbar}"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextKisiGunAd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:ems="10"
+        android:hint="Kişi Ad"
+        android:text="@{kisi.kisi_ad}"
+        android:inputType="text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarKisiGun" />
+
+    <EditText
+        android:id="@+id/editTextKisiGunTel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Kişi Tel"
+        android:text="@{kisi.kisi_tel}"
+        android:inputType="number"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextKisiGunAd" />
+
+    <Button
+        android:id="@+id/buttonKisiGüncelle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="GÜNCELLE"
+        android:onClick="@{() -> kisiGuncelleFragmentNesnesi.buttonGuncelle(kisi.id,editTextKisiGunAd.getText().toString(),editTextKisiGunTel.getText().toString())}"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextKisiGunTel" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
